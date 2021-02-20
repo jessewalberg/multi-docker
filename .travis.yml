@@ -12,7 +12,7 @@ after_success:
  - docker build -t jwalberg/multi-nginx -f ./nginx
  - docker build -t jwalberg/multi-server -f ./server
  - docker build -t jwalberg/multi-worker -f ./worker
- - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+ - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin  
  - docker push jwalberg/multi-client
  - docker push jwalberg/multi-nginx
  - docker push jwalberg/multi-server
