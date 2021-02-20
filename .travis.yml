@@ -8,10 +8,10 @@ script:
   - docker run -e CI=true jwalberg/react-test npm test -- --coverage
 
 after_success:
- - docker build -t jwalberg/multi-client -f ./client
- - docker build -t jwalberg/multi-nginx -f ./nginx
- - docker build -t jwalberg/multi-server -f ./server
- - docker build -t jwalberg/multi-worker -f ./worker
+ - docker build -t jwalberg/multi-client ./client
+ - docker build -t jwalberg/multi-nginx ./nginx
+ - docker build -t jwalberg/multi-server ./server
+ - docker build -t jwalberg/multi-worker ./worker
  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin  
  - docker push jwalberg/multi-client
  - docker push jwalberg/multi-nginx
